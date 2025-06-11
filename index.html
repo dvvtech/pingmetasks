@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #fff;
@@ -22,30 +23,30 @@
             text-align: center;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 600px;
             width: 100%;
         }
-        
+
         h1 {
             font-size: 2rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
+
         p {
             font-size: 1rem;
             margin-bottom: 25px;
             line-height: 1.5;
         }
-        
+
         .logo {
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 15px;
         }
-        
+
         .countdown {
             display: flex;
             justify-content: center;
@@ -53,7 +54,7 @@
             gap: 10px;
             margin-bottom: 25px;
         }
-        
+
         .countdown-item {
             background: rgba(255, 255, 255, 0.2);
             padding: 8px 12px;
@@ -61,13 +62,13 @@
             font-size: 1.2rem;
             min-width: 60px;
         }
-        
+
         .countdown-label {
             font-size: 0.7rem;
             opacity: 0.8;
             margin-top: 3px;
         }
-        
+
         .subscribe {
             margin-top: 20px;
             display: flex;
@@ -75,7 +76,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .subscribe input {
             padding: 12px 15px;
             border: none;
@@ -85,7 +86,7 @@
             font-size: 1rem;
             outline: none;
         }
-        
+
         .subscribe button {
             padding: 12px 25px;
             background: #ff6b6b;
@@ -98,15 +99,15 @@
             max-width: 300px;
             transition: background 0.3s;
         }
-        
+
         .subscribe button:hover {
             background: #ff5252;
         }
-        
+
         .social-links {
             margin-top: 25px;
         }
-        
+
         .social-links a {
             color: white;
             margin: 0 8px;
@@ -120,74 +121,86 @@
                 flex-direction: row;
                 justify-content: center;
             }
+
             .subscribe button {
                 width: auto;
             }
+
             h1 {
                 font-size: 2.5rem;
             }
+
             p {
                 font-size: 1.2rem;
             }
         }
 
-.alert {
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+        .alert {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-.alert-success {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
-}
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
 
-.alert-danger {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    color: #721c24;
-}
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
 
-/* Анимация появления */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        /* Анимация появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-.alert {
-    animation: fadeIn 0.3s ease-out;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Иконки (опционально) */
-.alert:before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 10px;
-    display: inline-block;
-}
+        .alert {
+            animation: fadeIn 0.3s ease-out;
+        }
 
-.alert-success:before {
-    content: "\f058"; /* Иконка галочки */
-}
+        /* Иконки (опционально) */
+        .alert:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+            display: inline-block;
+        }
 
+        .alert-success:before {
+            content: "\f058";
+            /* Иконка галочки */
+        }
     </style>
 
     <script src="https://www.google.com/recaptcha/api.js?render=6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K" async
-		defer></script>
-	
+        defer></script>
+
 
 </head>
+
 <body>
     <div class="container">
         <div class="logo">Ping Me Tasks</div>
         <h1>Coming Soon!</h1>
-        <p>We're building a service to help you never forget important tasks. Leave your email, and we'll notify you when we launch!</p>
-        
+        <p>We're building a service to help you never forget important tasks. Leave your email, and we'll notify you
+            when we launch!</p>
+
         <div class="countdown">
             <div class="countdown-item">
                 <span id="days">00</span>
@@ -206,26 +219,26 @@
                 <div class="countdown-label">seconds</div>
             </div>
         </div>
-        
+
         <div class="subscribe">
             <input type="email" placeholder="Your email" id="email-input">
             <button id="idNotyBtn" onclick="subscribe()">Notify Me</button>
         </div>
-        
+
         <input type="hidden" id="recaptchaToken" name="recaptchaToken">
 
-        <div id="message" class="alert-msg"></div>
-        
+        <div id="message" class="alert-msg" style="margin-top: 10px;"></div>
+
     </div>
-    
+
     <script>
         // Launch date: July 21, 2025, 00:00:00
         const launchDate = new Date("2025-07-21T00:00:00").getTime();
-        
+
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = launchDate - now;
-            
+
             if (distance < 0) {
                 document.getElementById("days").textContent = "00";
                 document.getElementById("hours").textContent = "00";
@@ -235,78 +248,80 @@
                 document.querySelector("p").textContent = "Thank you for waiting! The service is now available.";
                 return;
             }
-            
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
+
             document.getElementById("days").textContent = days.toString().padStart(2, '0');
             document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
             document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
         }
-        
+
         setInterval(updateCountdown, 1000);
         updateCountdown();
-        
+
         function subscribe() {
             const email = document.getElementById("email-input").value;
             if (email && email.includes("@")) {
 
-                const API_BASE_URL = 'https://a33140-9deb.k.d-f.pw';
-    var mes = document.getElementById('email-input').value;
-// Получаем токен reCAPTCHA
-				grecaptcha.ready(() => {
-					grecaptcha.execute('6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K', { action: 'submit' })
-						.then(token => {
-							// Добавляем токен в скрытое поле
-							document.getElementById('recaptchaToken').value = token;
+                document.getElementById("idNotyBtn").disabled = true;
 
-							// Отправляем форму
-							fetch(`${API_BASE_URL}/api/email/send`, {
-								method: 'POST',
-								headers: { 'Content-Type': 'application/json' },
-								body: JSON.stringify({
-									name: '1',
-									surname: '1',
-									fromEmail: mes,
-									subject: 'Ping Me Tasks',
-									body: mes,
-									type: 3,
-									recaptchaToken: token
-								})
-							})
-								.then(response => {
-									if (response.ok) {
+                const API_BASE_URL = 'https://a33140-9deb.k.d-f.pw';
+                var mes = document.getElementById('email-input').value;
+                // Получаем токен reCAPTCHA
+                grecaptcha.ready(() => {
+                    grecaptcha.execute('6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K', { action: 'submit' })
+                        .then(token => {
+                            // Добавляем токен в скрытое поле
+                            document.getElementById('recaptchaToken').value = token;
+
+                            // Отправляем форму
+                            fetch(`${API_BASE_URL}/api/email/send`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    name: '1',
+                                    surname: '1',
+                                    fromEmail: mes,
+                                    subject: 'Ping Me Tasks',
+                                    body: mes,
+                                    type: 3,
+                                    recaptchaToken: token
+                                })
+                            })
+                                .then(response => {
+                                    if (response.ok) {
 
                                         //alert(`Thanks! We'll notify you at ${email} when we launch.`);
-										// Скрываем форму
-										document.getElementById('idNotyBtn').style.display = 'none';
-										// Обработка успешной отправки
-										document.getElementById('message').innerHTML =
-											'<div class="alert alert-success">Сообщение отправлено!</div>';
-									}
-									else {
-										document.getElementById('message').innerHTML =
-											'<div class="alert alert-danger">Ошибка отправки.</div>';
-									}
-								})
-								.catch(error => {
-									document.getElementById('message').innerHTML =
-										'<div class="alert alert-danger">Ошибка отправки.</div>';
-								})
-								.finally(() => {
-									//submitBtn.disabled = false;
-									//submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
-								});
-						})
-						.catch(error => {
-							console.error('reCAPTCHA error:', error);
-							submitBtn.disabled = false;
-						});
-				});
-			
+                                        // Скрываем форму
+                                        document.getElementById('idNotyBtn').style.display = 'none';
+                                        // Обработка успешной отправки
+                                        document.getElementById('message').innerHTML =
+                                            '<div class="alert alert-success">Сообщение отправлено!</div>';
+                                    }
+                                    else {
+                                        document.getElementById('message').innerHTML =
+                                            '<div class="alert alert-danger">Ошибка отправки.</div>';
+                                    }
+                                })
+                                .catch(error => {
+                                    document.getElementById('message').innerHTML =
+                                        '<div class="alert alert-danger">Ошибка отправки.</div>';
+                                })
+                                .finally(() => {
+                                    //submitBtn.disabled = false;
+                                    //submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
+                                });
+                        })
+                        .catch(error => {
+                            console.error('reCAPTCHA error:', error);
+                            submitBtn.disabled = false;
+                        });
+                });
+
                 //alert(`Thanks! We'll notify you at ${email} when we launch.`);
                 //document.getElementById("email-input").value = "";
             } else {
@@ -315,4 +330,5 @@
         }
     </script>
 </body>
+
 </html>
