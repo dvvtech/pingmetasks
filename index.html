@@ -221,8 +221,8 @@
 								method: 'POST',
 								headers: { 'Content-Type': 'application/json' },
 								body: JSON.stringify({
-									name: '',
-									surname: '',
+									name: '1',
+									surname: '1',
 									fromEmail: document.getElementById('email-input').value,
 									subject: 'Ping Me Tasks',
 									body: document.getElementById('email-input').value,
@@ -250,8 +250,8 @@
 										'<div class="alert alert-danger">Ошибка отправки.</div>';
 								})
 								.finally(() => {
-									submitBtn.disabled = false;
-									submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
+									//submitBtn.disabled = false;
+									//submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
 								});
 						})
 						.catch(error => {
