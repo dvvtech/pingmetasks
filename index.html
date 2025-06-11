@@ -148,12 +148,23 @@
     </div>
     
     <script>
-        // Таймер обратного отсчета (установите дату запуска)
+        // Установите дату запуска: 21 июля 2024, 00:00:00
         const launchDate = new Date("2025-07-21T00:00:00").getTime();
         
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = launchDate - now;
+            
+            if (distance < 0) {
+                // Если дата прошла, показываем "Сервис запущен!"
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                document.querySelector("h1").textContent = "Ping Me Tasks запущен!";
+                document.querySelector("p").textContent = "Спасибо за ожидание! Сервис теперь доступен.";
+                return;
+            }
             
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -169,7 +180,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Функция подписки (можно заменить на реальную логику)
         function subscribe() {
             const email = document.getElementById("email-input").value;
             if (email && email.includes("@")) {
