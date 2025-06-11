@@ -131,6 +131,11 @@
             }
         }
     </style>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K" async
+		defer></script>
+	
+
 </head>
 <body>
     <div class="container">
@@ -200,7 +205,61 @@
         function subscribe() {
             const email = document.getElementById("email-input").value;
             if (email && email.includes("@")) {
-                alert(`Thanks! We'll notify you at ${email} when we launch.`);
+
+                const API_BASE_URL = 'https://a33140-9deb.k.d-f.pw';
+
+// Получаем токен reCAPTCHA
+				grecaptcha.ready(() => {
+					grecaptcha.execute('6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K', { action: 'submit' })
+						.then(token => {
+							// Добавляем токен в скрытое поле
+							document.getElementById('recaptchaToken').value = token;
+
+							// Отправляем форму
+							fetch(`${API_BASE_URL}/api/email/send`, {
+								method: 'POST',
+								headers: { 'Content-Type': 'application/json' },
+								body: JSON.stringify({
+									name: '',
+									surname: '',
+									fromEmail: document.getElementById('email-input').value,
+									subject: 'Ping Me Tasks',
+									body: document.getElementById('email-input').value,
+									type: 3,
+									recaptchaToken: token
+								})
+							})
+								.then(response => {
+									if (response.ok) {
+
+                                        alert(`Thanks! We'll notify you at ${email} when we launch.`);
+										// Скрываем форму
+										//document.getElementById('contactForm').style.display = 'none';
+										// Обработка успешной отправки
+										//document.getElementById('message').innerHTML =
+										//	'<div class="alert alert-success">Сообщение отправлено!</div>';
+									}
+									else {
+										document.getElementById('message').innerHTML =
+											'<div class="alert alert-danger">Ошибка отправки.</div>';
+									}
+								})
+								.catch(error => {
+									document.getElementById('message').innerHTML =
+										'<div class="alert alert-danger">Ошибка отправки.</div>';
+								})
+								.finally(() => {
+									submitBtn.disabled = false;
+									submitBtn.innerHTML = '<span class="educate-btn__curve"></span>Отправить Сообщение';
+								});
+						})
+						.catch(error => {
+							console.error('reCAPTCHA error:', error);
+							submitBtn.disabled = false;
+						});
+				});
+			
+                //alert(`Thanks! We'll notify you at ${email} when we launch.`);
                 document.getElementById("email-input").value = "";
             } else {
                 alert("Please enter a valid email address.");
