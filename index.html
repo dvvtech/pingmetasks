@@ -209,7 +209,7 @@
         
         <div class="subscribe">
             <input type="email" placeholder="Your email" id="email-input">
-            <button onclick="subscribe()">Notify Me</button>
+            <button id="idNotyBtn" onclick="subscribe()">Notify Me</button>
         </div>
         
         <input type="hidden" id="recaptchaToken" name="recaptchaToken">
@@ -282,7 +282,7 @@
 
                                         //alert(`Thanks! We'll notify you at ${email} when we launch.`);
 										// Скрываем форму
-										//document.getElementById('contactForm').style.display = 'none';
+										document.getElementById('idNotyBtn').style.display = 'none';
 										// Обработка успешной отправки
 										document.getElementById('message').innerHTML =
 											'<div class="alert alert-success">Сообщение отправлено!</div>';
