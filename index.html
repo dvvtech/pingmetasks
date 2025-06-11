@@ -208,7 +208,7 @@
             if (email && email.includes("@")) {
 
                 const API_BASE_URL = 'https://a33140-9deb.k.d-f.pw';
-
+    var t = document.getElementById('email-input').value;
 // Получаем токен reCAPTCHA
 				grecaptcha.ready(() => {
 					grecaptcha.execute('6LfpJF0rAAAAAPuc6depIj5TFtjWVCtEH6jbQF_K', { action: 'submit' })
@@ -223,9 +223,9 @@
 								body: JSON.stringify({
 									name: '1',
 									surname: '1',
-									fromEmail: document.getElementById('email-input').value,
+									fromEmail: t,
 									subject: 'Ping Me Tasks',
-									body: document.getElementById('email-input').value,
+									body: t,
 									type: 3,
 									recaptchaToken: token
 								})
