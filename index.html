@@ -1,10 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <title>Ping me tasks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Me Tasks — Скоро запуск!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            min-width: 70px;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .subscribe {
+            margin-top: 30px;
+        }
+        
+        .subscribe input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            width: 70%;
+            max-width: 400px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .subscribe button {
+            padding: 12px 25px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+        
+        .subscribe button:hover {
+            background: #ff5252;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    PingMeTasks
+    <div class="container">
+        <div class="logo">Ping Me Tasks</div>
+        <h1>Скоро запуск!</h1>
+        <p>Мы работаем над сервисом, который поможет вам не забывать о важных задачах. Оставьте email, и мы сообщим вам, когда все будет готово!</p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <div class="countdown-label">дней</div>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <div class="countdown-label">часов</div>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <div class="countdown-label">минут</div>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <div class="countdown-label">секунд</div>
+            </div>
+        </div>
+        
+        <div class="subscribe">
+            <input type="email" placeholder="Ваш email" id="email-input">
+            <button onclick="subscribe()">Уведомить</button>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" target="_blank">📱 Telegram</a>
+            <a href="#" target="_blank">🐦 Twitter</a>
+            <a href="#" target="_blank">📸 Instagram</a>
+        </div>
+    </div>
+    
+    <script>
+        // Таймер обратного отсчета (установите дату запуска)
+        const launchDate = new Date("2025-07-21T00:00:00").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Функция подписки (можно заменить на реальную логику)
+        function subscribe() {
+            const email = document.getElementById("email-input").value;
+            if (email && email.includes("@")) {
+                alert(`Спасибо! Мы уведомим вас на ${email} о запуске.`);
+                document.getElementById("email-input").value = "";
+                // Здесь можно добавить отправку на сервер
+            } else {
+                alert("Пожалуйста, введите корректный email.");
+            }
+        }
+    </script>
 </body>
 </html>
