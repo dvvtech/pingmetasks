@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ping Me Tasks — Скоро запуск!</title>
+    <title>Ping Me Tasks — Coming Soon!</title>
     <style>
         * {
             margin: 0;
@@ -113,42 +113,42 @@
 <body>
     <div class="container">
         <div class="logo">Ping Me Tasks</div>
-        <h1>Скоро запуск!</h1>
-        <p>Мы работаем над сервисом, который поможет вам не забывать о важных задачах. Оставьте email, и мы сообщим вам, когда все будет готово!</p>
+        <h1>Coming Soon!</h1>
+        <p>We're building a service to help you never forget important tasks. Leave your email, and we'll notify you when we launch!</p>
         
         <div class="countdown">
             <div class="countdown-item">
                 <span id="days">00</span>
-                <div class="countdown-label">дней</div>
+                <div class="countdown-label">days</div>
             </div>
             <div class="countdown-item">
                 <span id="hours">00</span>
-                <div class="countdown-label">часов</div>
+                <div class="countdown-label">hours</div>
             </div>
             <div class="countdown-item">
                 <span id="minutes">00</span>
-                <div class="countdown-label">минут</div>
+                <div class="countdown-label">minutes</div>
             </div>
             <div class="countdown-item">
                 <span id="seconds">00</span>
-                <div class="countdown-label">секунд</div>
+                <div class="countdown-label">seconds</div>
             </div>
         </div>
         
         <div class="subscribe">
-            <input type="email" placeholder="Ваш email" id="email-input">
-            <button onclick="subscribe()">Уведомить</button>
+            <input type="email" placeholder="Your email" id="email-input">
+            <button onclick="subscribe()">Notify Me</button>
         </div>
         
-        <div class="social-links">
+        <!--<div class="social-links">
             <a href="#" target="_blank">📱 Telegram</a>
             <a href="#" target="_blank">🐦 Twitter</a>
             <a href="#" target="_blank">📸 Instagram</a>
-        </div>
+        </div>-->
     </div>
     
     <script>
-        // Установите дату запуска: 21 июля 2024, 00:00:00
+        // Launch date: July 21, 2025, 00:00:00
         const launchDate = new Date("2025-07-21T00:00:00").getTime();
         
         function updateCountdown() {
@@ -156,13 +156,13 @@
             const distance = launchDate - now;
             
             if (distance < 0) {
-                // Если дата прошла, показываем "Сервис запущен!"
+                // If launch date has passed
                 document.getElementById("days").textContent = "00";
                 document.getElementById("hours").textContent = "00";
                 document.getElementById("minutes").textContent = "00";
                 document.getElementById("seconds").textContent = "00";
-                document.querySelector("h1").textContent = "Ping Me Tasks запущен!";
-                document.querySelector("p").textContent = "Спасибо за ожидание! Сервис теперь доступен.";
+                document.querySelector("h1").textContent = "Ping Me Tasks is Live!";
+                document.querySelector("p").textContent = "Thank you for waiting! The service is now available.";
                 return;
             }
             
@@ -183,11 +183,11 @@
         function subscribe() {
             const email = document.getElementById("email-input").value;
             if (email && email.includes("@")) {
-                alert(`Спасибо! Мы уведомим вас на ${email} о запуске.`);
+                alert(`Thanks! We'll notify you at ${email} when we launch.`);
                 document.getElementById("email-input").value = "";
-                // Здесь можно добавить отправку на сервер
+                // Add backend integration here
             } else {
-                alert("Пожалуйста, введите корректный email.");
+                alert("Please enter a valid email address.");
             }
         }
     </script>
